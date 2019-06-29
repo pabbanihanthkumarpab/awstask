@@ -15,20 +15,22 @@ read -p "Enter git repository name! " repoName
 
 cd ~/repositories/
 
-is_repo_already_exists=`ls | grep -c $repoName`
+is_repo_already_exists=`ls | grep -c -w '^${repoName}$'`
+
+echo $is_repo_already_exists
 
 if [ $is_repo_already_exists = 0 ] ;then
 	read -p "Enter git Url! " gitUrl
 	git clone $gitUrl
 	if [ $? -ne 0 ] ;then
-	  echo "Problem in cloning the git! Check the creadentials or Url "
+	  echo "Problem in cloning the git! Check the credentials or Url "
 	  exit 1
 	fi
 else
 	cd ~/repositories/$repoName
 	git pull
         if [ $? -ne 0 ] ;then
-          echo "Problem in pulling the latest code! Check the creadentials !! "
+          echo "Problem in pulling the latest code! Check the credentials !! "
           exit 1
         fi
 fi	
@@ -41,7 +43,7 @@ if [ $? -ne 0 ] ;then
  exit 1
 fi
 
-cp ~/repositories/$repoName/* ~/$appName"-directory/"
+cp -r ~/repositories/$repoName/* ~/$appName"-directory/"
 cd ~/$appName"-directory"
 
 read -p "Press 1 if it is 1st time deployment! else 0 !! " is_first_deployment
