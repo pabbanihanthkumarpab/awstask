@@ -27,6 +27,9 @@ echo "Checking whether Azure cli is installed"
 is_azcli_installed=`az --version | grep -c "azure-cli"`
 if [ $is_azcli_installed = 0 ] ;then
  echo "Azure cli is not installed ! Please install it at first!!"
+ echo "After fixinng it use the below command to continue the execution"
+ echo "bash ~/DeploymentScripts/deploy_in_azure.sh <repository_name> <branch_name> <application_name> <is_first_deployment>"
+ echo "Example bash ~/DeploymentScripts/deploy_in_azure.sh loginradius master loginradius 1"
  exit 1
 fi
 
@@ -43,6 +46,9 @@ if [ $is_first_deployment = 1 ] ;then
 	az group create --location ${location} --name ${resource_group}
 	if [ $? -ne 0 ] ;then
 	 echo "Problem in creating resource location . Fix the above mentioned error and retry! "
+         echo "After fixinng it use the below command to continue the execution"
+	 echo "bash ~/DeploymentScripts/deploy_in_azure.sh <repository_name> <branch_name> <application_name> <is_first_deployment>"
+	 echo "Example bash ~/DeploymentScripts/deploy_in_azure.sh loginradius master loginradius 1"
 	 #az group delete --name myResourceGroup
 	 exit 1
 	fi
@@ -53,6 +59,9 @@ if [ $is_first_deployment = 1 ] ;then
 	 echo "Problem in creating Appservice plan . Fix the above mentioned error and retry! "
 	 echo "Cleaning up the created resources"
 	 az group delete --name ${resource_group}
+         echo "After fixinng it use the below command to continue the execution"
+	 echo "bash ~/DeploymentScripts/deploy_in_azure.sh <repository_name> <branch_name> <application_name> <is_first_deployment>"
+	 echo "Example bash ~/DeploymentScripts/deploy_in_azure.sh loginradius master loginradius 1"
 	 exit 1
 	fi
 
@@ -63,10 +72,11 @@ if [ $is_first_deployment = 1 ] ;then
 	 echo "Problem in creating WebApplication . Fix the above mentioned error and retry! "
 	 echo "Cleaning up the created resources"
 	 az group delete --name ${resource_group}
+	 echo "After fixinng it use the below command to continue the execution"
+	 echo "bash ~/DeploymentScripts/deploy_in_azure.sh <repository_name> <branch_name> <application_name> <is_first_deployment>"
+	 echo "Example bash ~/DeploymentScripts/deploy_in_azure.sh loginradius master loginradius 1"
 	 exit 1
 	fi
-
-
 
 	# Set the account-level deployment credentials
 	az webapp deployment user set --user-name $username --password $password
@@ -74,6 +84,9 @@ if [ $is_first_deployment = 1 ] ;then
 	 echo "Problem in creating deployment user . Fix the above mentioned error and retry! "
 	 echo "Cleaning up the created resources"
 	 az group delete --name ${resource_group}
+	 echo "After fixinng it use the below command to continue the execution"
+	 echo "bash ~/DeploymentScripts/deploy_in_azure.sh <repository_name> <branch_name> <application_name> <is_first_deployment>"
+	 echo "Example bash ~/DeploymentScripts/deploy_in_azure.sh loginradius master loginradius 1"
 	 exit 1
 	fi
 
@@ -87,6 +100,9 @@ if [ $is_first_deployment = 1 ] ;then
 	 echo "Problem in configuring deployment source . Fix the above mentioned error and retry! "
 	 echo "Cleaning up the created resources"
 	 az group delete --name ${resource_group}
+	 echo "After fixinng it use the below command to continue the execution"
+	 echo "bash ~/DeploymentScripts/deploy_in_azure.sh <repository_name> <branch_name> <application_name> <is_first_deployment>"
+	 echo "Example bash ~/DeploymentScripts/deploy_in_azure.sh loginradius master loginradius 1"
 	 exit 1
 	fi
 
