@@ -21,7 +21,7 @@ Note : Steps are sent only for ubuntu . Run those as sudo user
 6) Please read the directions/prompts that are printed on the screen carefully.
 7) For the 1st time deployment , it takes little time . Please be patient and follow the logs printed on the screen
 
-8) Here starts the actual installation , run the below command and give the inputs according to the prompts .
+8) Here starts the actual deployment , run the below command and give the inputs according to the prompts .
    Sample inputs are also provided below .
    
    command:
