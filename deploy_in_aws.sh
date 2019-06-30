@@ -12,16 +12,17 @@ read -p "Enter the Application Name: "  appName
 mkdir -p ~/$appName"-directory"
 mkdir -p ~/repositories
 
-read -p "Enter git repository name! " repoName
+read -p "Enter source git repository name: " repoName
+echo "RepoName : $repoName"
 
 cd ~/repositories/
 
-is_repo_already_exists=`ls | grep -c -w '^${repoName}$'`
+is_repo_already_exists=`ls | grep -c -w "^${repoName}$"`
 
 echo $is_repo_already_exists
 
 if [ $is_repo_already_exists = 0 ] ;then
-	read -p "Enter git Url! " gitUrl
+	read -p "Enter git Url to clone the repository: " gitUrl
 	git clone $gitUrl
 	if [ $? -ne 0 ] ;then
 	  echo "Problem in cloning the git! Check the credentials or Url "
@@ -64,4 +65,4 @@ echo "==========================================================================
 echo "Azure deployment starts in 15 seconds ..! "
 sleep 20
 
-bash deploy_in_azure.sh $repoName $gitBranch $appName $is_first_deployment
+bash ~/DeploymentScripts/awstask/deploy_in_azure.sh $repoName $gitBranch $appName $is_first_deployment

@@ -119,8 +119,15 @@ fi
 
 echo "When prompted for username and password, provide the credentials that you have given during Setting the account-level deployment credentials"
 
+git pull
 git push 'azure'${repo_name} ${branch_name}:master
-
+if [ $? -ne 0 ] ;then
+  echo "Problem in pushing the code . Fix the above mentioned error and retry!"
+  echo "After fixinng it use the below command to continue the execution"
+  echo "bash ~/DeploymentScripts/deploy_in_azure.sh <repository_name> <branch_name> <application_name> <is_first_deployment>"
+  echo "Example bash ~/DeploymentScripts/deploy_in_azure.sh loginradius master loginradius 1"
+  exit 1
+fi
 # Copy the result of the following command into a browser to see the web app.
 echo "========================================================================================================="
 echo " And Thats it!! Navigate to the following URL : http://${webapp_name}.azurewebsites.net "
