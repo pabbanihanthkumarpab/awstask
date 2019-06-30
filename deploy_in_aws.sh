@@ -56,4 +56,11 @@ eb deploy
 
 url=`eb status | grep CNAME: | cut -d ':' -f2 | awk '{$1=$1};1'`
 
+echo "=========================================================================================================="
 echo " And Thats it!! Navigate to the following URL : " $url
+echo "=========================================================================================================="
+
+echo "Azure deployment starts in 15 seconds ..! "
+sleep 20
+
+bash deploy_in_azure.sh $repoName $gitBranch $appName $is_first_deployment
