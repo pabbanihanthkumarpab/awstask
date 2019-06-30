@@ -10,6 +10,7 @@ echo "ebcli is installed . Good to go!! "
 
 read -p "Enter the Application Name: "  appName
 mkdir -p ~/$appName"-directory"
+mkdir -p ~/repositories
 
 read -p "Enter git repository name! " repoName
 
