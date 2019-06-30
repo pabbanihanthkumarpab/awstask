@@ -1,5 +1,7 @@
+<pre>
+<h1>AWS and Azure deployment</h1>
 
-Instructions:
+<h3>Instructions:</h3>
 1) Deployment scripts uses cli commands of aws and azure to perform the deployments in Elastic beanstalk and Azure App Service.
    So , please make sure that ebcli and azcli are installed .
 2) Steps to install those if not installed : 
@@ -59,6 +61,6 @@ Note : Steps are sent only for ubuntu . Run those as sudo user
 
  
    
-
+</pre>
 
    
