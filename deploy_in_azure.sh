@@ -40,7 +40,7 @@ if [ $is_first_deployment = 1 ] ;then
 	read -p "Enter the username that to be used to set account level deployment credentials: " username
 	read -p "Enter the password that to be used to set account level deployment credentials: " password
 
-	resource_group=${webapp_name}'${location}'
+	resource_group=${webapp_name}${location}
 
 	# Create a resource group.
 	az group create --location ${location} --name ${resource_group}
