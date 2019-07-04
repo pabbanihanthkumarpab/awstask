@@ -34,13 +34,13 @@ Note : Steps are sent only for ubuntu . Run those as sudo user
  Enter git Url to clone the repository: https://github.com/pabbanihanthkumarpab/loginradiusrepo.git
  Enter git branch that to be deployed! : master
  Press 1 if it is 1st time deployment! else 0 !! --> 1
- Select a default region : <just press enter>
- Select an application to use : <Choose the number that suggests the "Create New Application!">
- Enter Application Name : <just press enter>
+ Select a default region : just press enter
+ Select an application to use : Choose the number that suggests the "Create New Application!"
+ Enter Application Name : just press enter
  It appears you are using Node.js. Is this correct? (y/n): y
  Do you want to set up SSH for your instances?(y/n): n
- Enter Environment Name:<just press enter>
- Enter DNS CNAME prefix: <just press enter>
+ Enter Environment Name: just press enter
+ Enter DNS CNAME prefix: just press enter
  Select a load balancer type: 2
    
  Wait till the following is shown and navigate to the url shown
